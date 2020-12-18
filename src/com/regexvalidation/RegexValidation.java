@@ -6,6 +6,12 @@ import java.util.regex.Pattern;
 
 public class RegexValidation 
 {
+    final String FIRSTNAMEPATTERN =  "^[A-Z]{1}[a-z]{2,}$";
+    final String LASTNAMEPATTERN = "^[A-Z]{1}[a-z]{2,}$";
+    final String EMAILPATTERN = "^[a-zA-Z0-9\\\\-\\\\+\\\\.]+.([a-zA-Z0-9])*@([a-z0-9]+.[a-z]{2,}.([a-z]{2,})?)$";
+    final String MOBILEPATTERN = "^[0-9]{2}[-]?[0-9]{10}$";
+    final String PASSWORPATTERN = "^(?=[A-Za-z0-9!@#]{8,}$)(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).*";
+    
     String firstName;
     String lastName;
     String email;
@@ -16,86 +22,86 @@ public class RegexValidation
     
     public void firstNameValidation()
     {
-        String firstNamePattern ="^[A-Z]{1}[a-z]{2,}$";
         System.out.print("Enter the First Name : ");
         firstName  = readInput.next();
-        if(Pattern.matches(firstNamePattern, firstName))
+        if(Pattern.matches(FIRSTNAMEPATTERN, firstName))
         {
-            System.out.println("✔");
+            System.out.println(firstName+" ✔");
             lastNameValidation();
         }
         else
         {
             System.out.println("Invalid FirstName");
+            System.out.println("---Retry It---");
             firstNameValidation();
         }
     }
     
     public void lastNameValidation()
     {
-        String lastNamePattern = "^[A-Z]{1}[a-z]{2,}$";
         System.out.print("Enter the Last Name : ");
         lastName  = readInput.next();
-        if(Pattern.matches(lastNamePattern, lastName))
+        if(Pattern.matches(LASTNAMEPATTERN, lastName))
         {
-            System.out.println("✔");
+            System.out.println(lastName+" ✔");
             emailValidation();
         }
         else
         {
             System.out.println("Invalid LastName");
+            System.out.println("---Retry It---");
             lastNameValidation();
         }
     }
     
     public void emailValidation()
     {
-        String emailPattern = "^[a-zA-Z0-9\\\\-\\\\+\\\\.]+.([a-zA-Z0-9])*@([a-z0-9]+.[a-z]{2,}.([a-z]{2,})?)$";
         System.out.print("Enter the Email ID : ");
         email  = readInput.next();
-        if(Pattern.matches(emailPattern, email))
+        if(Pattern.matches(EMAILPATTERN, email))
         {
-            System.out.println("✔");
+            System.out.println(email+" ✔");
             mobileNumberValidation();
         }
         else
         {
             System.out.println("Invalid Email");
+            System.out.println("---Retry It---");
             emailValidation();
         }
     }
     
     public void mobileNumberValidation()
     {
-        String mobilePattern = "^[0-9]{2}[-]?[0-9]{10}$";
         System.out.print("Enter the Mobile Number :");
         mobileNumber  = readInput.next();
-        if(Pattern.matches(mobilePattern, mobileNumber))
+        if(Pattern.matches(MOBILEPATTERN, mobileNumber))
         {
-            System.out.println("✔");
+            System.out.println(mobileNumber+" ✔");
             passwordValidation();
         }
         else
         {
             System.out.println("Invalid Number");
+            System.out.println("---Retry It---");
             mobileNumberValidation();
         }
     }
     
     public void passwordValidation()
     {
-        String passwordPattern = "^(?=[A-Za-z0-9!@#]{8,}$)(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).*";
         System.out.println("RULES: [Minimum length is 8] [1 specialChar] [Atleast 1 Cap , Lower, digit]");
         System.out.print("Enter the Password :");
         password  = readInput.next();
-        if(Pattern.matches(passwordPattern, password))
+        if(Pattern.matches(PASSWORPATTERN, password))
         {
-            System.out.println("✔");
+            System.out.println(password+" ✔");
             display();
         }
         else
         {
             System.out.println("Invalid Password");
+            System.out.println("---Retry it---");
             passwordValidation();
         }
     }
