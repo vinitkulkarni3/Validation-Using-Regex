@@ -11,7 +11,8 @@ public class RegexValidation
         System.out.println("* * * WELCOME TO USER REGISTRATION USING REGEX * * *\n");
         
         String firstName;
-        String LastName;
+        String lastName;
+        String email;
         Scanner readInput = new Scanner(System.in);
         
         //FirstName Validation
@@ -28,16 +29,29 @@ public class RegexValidation
         }
         
         //LastName Validation
-        String LastNamePattern = "^[A-Z]{1}[a-z]{2,}$";
+        String lastNamePattern = "^[A-Z]{1}[a-z]{2,}$";
         System.out.print("Enter the Last Name : ");
-        LastName  = readInput.next();
-        if(Pattern.matches(LastNamePattern, LastName))
+        lastName  = readInput.next();
+        if(Pattern.matches(lastNamePattern, lastName))
         {
             System.out.println("Valid LastName");
         }
         else
         {
             System.out.println("Invalid LastName");
+        }
+        
+        //Email Validation
+        String emailPattern = "^[a-zA-Z0-9\\\\-\\\\+\\\\.]+.([a-zA-Z0-9])*@([a-z0-9]+.[a-z]{2,}.([a-z]{2,})?)$";
+        System.out.print("Enter the Email ID : ");
+        email  = readInput.next();
+        if(Pattern.matches(emailPattern, email))
+        {
+            System.out.println("Valid Email");
+        }
+        else
+        {
+            System.out.println("Invalid Email");
         }
     }   
 }
