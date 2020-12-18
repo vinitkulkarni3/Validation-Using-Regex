@@ -14,6 +14,7 @@ public class RegexValidation
         String lastName;
         String email;
         String mobileNumber;
+        String password;
         Scanner readInput = new Scanner(System.in);
         
         //FirstName Validation
@@ -59,7 +60,6 @@ public class RegexValidation
         String mobilePattern = "^[0-9]{2}[-]?[0-9]{10}$";
         System.out.print("Enter the Mobile Number :");
         mobileNumber  = readInput.next();
-        System.out.println(Pattern.matches(mobilePattern, mobileNumber));
         if(Pattern.matches(mobilePattern, mobileNumber))
         {
             System.out.println("Valid Number");
@@ -67,6 +67,20 @@ public class RegexValidation
         else
         {
             System.out.println("Invalid Number");
+        }
+        
+        //Password Validation
+        String passwordPattern = "^(?=[A-Za-z0-9!@#]{8,}$)(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).*";
+        System.out.println("RULES: [Minimum length is 8] [1 specialChar] [Atleast 1 Cap , Lower, digit]");
+        System.out.print("Enter the Password :");
+        password  = readInput.next();
+        if(Pattern.matches(passwordPattern, password))
+        {
+            System.out.println("Valid Password");
+        }
+        else
+        {
+            System.out.println("Invalid Password");
         }
     }   
 }
