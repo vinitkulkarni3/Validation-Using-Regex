@@ -11,6 +11,7 @@ public class RegexValidation
         System.out.println("* * * WELCOME TO USER REGISTRATION USING REGEX * * *\n");
         
         String firstName;
+        String LastName;
         Scanner readInput = new Scanner(System.in);
         
         //FirstName Validation
@@ -24,6 +25,19 @@ public class RegexValidation
         else
         {
             System.out.println("Invalid FirstName");
+        }
+        
+        //LastName Validation
+        String LastNamePattern = "^[A-Z]{1}[a-z]{2,}$";
+        System.out.print("Enter the Last Name : ");
+        LastName  = readInput.next();
+        if(Pattern.matches(LastNamePattern, LastName))
+        {
+            System.out.println("Valid LastName");
+        }
+        else
+        {
+            System.out.println("Invalid LastName");
         }
     }   
 }
