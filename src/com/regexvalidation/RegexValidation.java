@@ -13,6 +13,7 @@ public class RegexValidation
         String firstName;
         String lastName;
         String email;
+        String mobileNumber;
         Scanner readInput = new Scanner(System.in);
         
         //FirstName Validation
@@ -52,6 +53,20 @@ public class RegexValidation
         else
         {
             System.out.println("Invalid Email");
+        }
+        
+        //MobileNumber Validation
+        String mobilePattern = "^[0-9]{2}[-]?[0-9]{10}$";
+        System.out.print("Enter the Mobile Number :");
+        mobileNumber  = readInput.next();
+        System.out.println(Pattern.matches(mobilePattern, mobileNumber));
+        if(Pattern.matches(mobilePattern, mobileNumber))
+        {
+            System.out.println("Valid Number");
+        }
+        else
+        {
+            System.out.println("Invalid Number");
         }
     }   
 }
